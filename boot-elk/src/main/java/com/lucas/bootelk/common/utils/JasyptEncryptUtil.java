@@ -5,6 +5,7 @@
 //import org.apache.commons.lang3.StringUtils;
 //import org.jasypt.encryption.StringEncryptor;
 //import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Qualifier;
 //import org.springframework.stereotype.Component;
 //
 //import java.util.Map;
@@ -15,8 +16,8 @@
 //    private static StringEncryptor stringEncryptor;
 //
 //    @Autowired
-//    public JasyptEncryptUtil(StringEncryptor stringEncryptor) {
-//        this.stringEncryptor = stringEncryptor;
+//    public JasyptEncryptUtil(@Qualifier("jasyptEncryptor") StringEncryptor stringEncryptor) {
+//        JasyptEncryptUtil.stringEncryptor = stringEncryptor;
 //    }
 //
 //    /**
