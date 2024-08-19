@@ -31,3 +31,5 @@
 >>> @EnableJpaRepositories(excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = ElasticsearchRepository.class))
 >>> public class Application { ... }
 >>> ```
+>>> ** 이때, 특정 Class 만 제외가 아닌 모든 ElasticsearchRepository 제외 시켜야 하기때문에 
+>>> FilterType.REGEX 를 사용하거나, JPA 를 사용하는 Class 를 따로 패키지 분리하여 사용하는 방법이 있음
