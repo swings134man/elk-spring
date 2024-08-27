@@ -56,6 +56,12 @@ public class MoviesEsService {
     }
 
     @Transactional(readOnly = true)
+    public SearchHits<MoviesDocument> findByTitleToHit(String title) {
+        SearchHits<MoviesDocument> result = moviesEsRepository.findByTitle(title);
+        return result;
+    }
+
+    @Transactional(readOnly = true)
     public List<MoviesDocument> findAll() {
         Iterable<MoviesDocument> all = moviesEsRepository.findAll();
 

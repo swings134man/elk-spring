@@ -4,6 +4,7 @@ import com.lucas.bootelk.modules.movies.domain.MoviesDocument;
 import com.lucas.bootelk.modules.movies.service.MoviesEsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
@@ -30,11 +31,15 @@ public class MoviesEsController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping("/title")
-    public List<MoviesDocument> getMoviesByTitle(String title) {
+    @GetMapping("/{title}")
+    public List<MoviesDocument> getMoviesByTitle(@PathVariable("title") String title) {
         return moviesEsService.findByTitle(title);
     }
 
+//    @GetMapping("/title/hit")
+//    public SearchHits<MoviesDocument> getMoviesByTitleToHit(String title) {
+//        return moviesEsService.findByTitleToHit(title);
+//    }
 
     @GetMapping("/all")
     public List<MoviesDocument> getAllMovies() {
