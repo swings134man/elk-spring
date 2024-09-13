@@ -31,10 +31,9 @@ public class SeriesDocument {
     private List<String> genre;
 
 
-    //FIXME: This Field Is Null Not Matched With The Index
-//    @JoinTypeRelations(relations = {
-//            @JoinTypeRelation(parent = "franchise", children = "film")
-//    })
-//    @Field(type = FieldType.Object)
-//    private JoinField<String> filmToFranchise;
+    @JoinTypeRelations(relations = {
+            @JoinTypeRelation(parent = "franchise", children = "film")
+    })
+    @Field(type = FieldType.Nested, name = "film_to_franchise")
+    private JoinField<String> filmToFranchise;
 }

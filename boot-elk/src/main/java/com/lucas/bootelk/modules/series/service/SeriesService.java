@@ -1,6 +1,7 @@
 package com.lucas.bootelk.modules.series.service;
 
 import com.lucas.bootelk.modules.series.domain.SeriesDocument;
+import com.lucas.bootelk.modules.series.repository.SeriesCriteriaRepository;
 import com.lucas.bootelk.modules.series.repository.SeriesEsRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,7 @@ import java.util.List;
 public class SeriesService {
 
     private final SeriesEsRepository repository;
+    private final SeriesCriteriaRepository criteriaRepository;
 
     @Transactional(readOnly = true)
     public List<SeriesDocument> findAllSeries() {
@@ -24,5 +26,10 @@ public class SeriesService {
         List<SeriesDocument> list = new ArrayList<>();
         all.forEach(list::add);
         return list;
+    }
+
+    @Transactional(readOnly = true)
+    public List<SeriesDocument> findByFilmTitle(String parentType, String title) {
+        return criteriaRepository.findByParentAndChildTitle(parentType, title);
     }
 }
