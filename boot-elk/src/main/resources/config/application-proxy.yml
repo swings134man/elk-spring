@@ -7,4 +7,4 @@ spring:
   elasticsearch:
     host: 192.168.35.135
     port: 9200
-    password: kyj7114
+    password: ENC(Qv3KhiJjs3eEQDLxL2uK9BXAZPMSDWTUfE4gFc8gDEuRlyCGkl9zjqXtG1L9iSdZ)

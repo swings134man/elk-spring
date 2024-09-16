@@ -5,4 +5,4 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://192.168.35.135:3360/boot_elk?useSSL=false
     username: develop
-    password:
+    password: ENC(1ivXE4Tq8eRB0mLiq2qMypPt9CQSbu7Of3Nuh+j1lMVXoQPRU+JvjkoUE+i8bx/l)
