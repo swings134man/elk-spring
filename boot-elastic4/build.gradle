@@ -33,6 +33,7 @@ dependencies {
 	implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
 	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.5'
 	implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5'// jasypt
+	implementation 'com.opencsv:opencsv:5.5' // openCSV
 
 
 
