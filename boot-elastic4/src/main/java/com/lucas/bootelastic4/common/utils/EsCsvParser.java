@@ -13,9 +13,11 @@ import java.util.List;
  * CSV Parse To List<Object>
  *     Using For ElasticSearch Data Import
  *
+ * CSV file 명과, Target Entity Class 를 파라미터로 받은 후
+ * 동적으로 해당 Entity Class 에 CSV 파일을 Mapping 하여 List 로 리턴
  */
 @Service
-public class CsvParser {
+public class EsCsvParser {
 
     public List<Object> parseToList(String fileName, Object targetEntity) throws InstantiationException, IllegalAccessException {
         // 1. Target Entity Class, Fields Get

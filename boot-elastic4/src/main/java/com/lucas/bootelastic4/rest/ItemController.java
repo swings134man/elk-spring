@@ -1,6 +1,6 @@
 package com.lucas.bootelastic4.rest;
 
-import com.lucas.bootelastic4.common.utils.CsvParser;
+import com.lucas.bootelastic4.common.utils.EsCsvParser;
 import com.lucas.bootelastic4.modules.item.domain.Item;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/api")
 public class ItemController {
 
-    private final CsvParser csvParser;
+    private final EsCsvParser csvParser;
 
     @PostMapping("/items/csv")
     public List<Item> saveCsv(@RequestParam String csvFileName) throws InstantiationException, IllegalAccessException {
