@@ -16,16 +16,10 @@ public class JasyptEncryptUtil {
     }
 
     public static String encrypt(String data) {
-        if (StringUtils.isEmpty(data)) {
-            return null;
-        }
         return stringEncryptor.encrypt(data);
     }
 
     public static String decrypt(String data) {
-        if (StringUtils.isEmpty(data)) {
-            return null;
-        }
         return stringEncryptor.decrypt(data);
     }
 }

@@ -12,7 +12,7 @@ public class JasyptConfig {
     @Value("${jasypt.encryptor.password}")
     private String encryptKey;
 
-    @Bean(name = "jasyptStringEncryptor")
+    @Bean(name = "jasyptEncryptor")
     public SimpleStringPBEConfig encryptor() {
         PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
         SimpleStringPBEConfig config = new SimpleStringPBEConfig();
