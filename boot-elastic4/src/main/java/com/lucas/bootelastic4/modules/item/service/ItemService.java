@@ -2,6 +2,7 @@ package com.lucas.bootelastic4.modules.item.service;
 
 import com.lucas.bootelastic4.common.utils.EsCsvParser;
 import com.lucas.bootelastic4.modules.item.domain.Item;
+import com.lucas.bootelastic4.modules.item.repository.ItemQueryRepository;
 import com.lucas.bootelastic4.modules.repository.es.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,7 @@ public class ItemService {
 
     private final EsCsvParser csvParser;
     private final ItemRepository itemRepository;
+    private final ItemQueryRepository itemQueryRepository;
 
 
     @Transactional
@@ -38,5 +40,10 @@ public class ItemService {
         log.info("--- items CSV Save End ---");
 
         return items;
+    }
+
+    @Transactional(readOnly = true)
+    public List<Item> findByNameFuzzyAuto(String name) {
+        return itemQueryRepository.findByNameWithFuzzy(name);
     }
 }
