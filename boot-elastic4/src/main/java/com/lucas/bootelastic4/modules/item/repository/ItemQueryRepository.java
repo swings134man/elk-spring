@@ -7,7 +7,6 @@ import org.springframework.data.elasticsearch.client.elc.NativeQuery;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.stereotype.Repository;
 
-import javax.management.Query;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,4 +34,23 @@ public class ItemQueryRepository {
                 .stream().map(hit -> hit.getContent())
                 .collect(Collectors.toList());
     }
+
+    /**
+     * Find By Name -> No fuzzy search
+     * -> And Analyzer is "standard"
+     * @param name
+     * @return
+     */
+    public List<Item> findByName(String name) {
+        NativeQuery query = NativeQuery.builder()
+                .withQuery(q -> q.match(f -> f.field("name")
+                        .query(name)
+                        .analyzer("standard")))
+                .build();
+
+        return elasticsearchOperations.search(query, Item.class)
+                .stream().map(hit -> hit.getContent())
+                .collect(Collectors.toList());
+    }
+
 }
