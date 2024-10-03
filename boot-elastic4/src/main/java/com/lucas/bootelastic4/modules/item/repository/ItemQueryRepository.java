@@ -53,4 +53,11 @@ public class ItemQueryRepository {
                 .collect(Collectors.toList());
     }
 
+
+    public void findByNameWithTerm(String name) {
+        NativeQuery query = NativeQuery.builder()
+                .withQuery(q -> q.term(f -> f.field("name").value(name)))
+                .build();
+    }
+
 }
